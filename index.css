@@ -1,0 +1,235 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease;
+}
+
+body {
+  background: linear-gradient(to right, #dbeafe, #f0f4ff);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+}
+
+/* Dark mode body override */
+body.dark {
+  background: linear-gradient(to right, #1e293b, #0f172a);
+}
+
+/* App Container */
+.app {
+  background: white;
+  width: 100%;
+  max-width: 500px;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+body.dark .app {
+  background: #1e293b;
+  color: white;
+}
+
+/* Title */
+.app h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #1e3a8a;
+}
+
+body.dark .app h1 {
+  color: #93c5fd;
+}
+
+/* Date */
+#date {
+  font-size: 1.1rem;
+  color: #475569;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+body.dark #date {
+  color: #cbd5e1;
+}
+
+/* Input Section */
+.todo-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.todo-input input {
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 2px solid #93c5fd;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.todo-input input:focus {
+  border-color: #2563eb;
+}
+
+.todo-input button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.todo-input button:hover {
+  background: #1e40af;
+}
+
+/* Todo Items */
+.todo-list .item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  animation: slideUp 0.4s ease;
+}
+
+body.dark .todo-list .item {
+  background: #334155;
+  border-color: #475569;
+}
+
+/* Input + Icons */
+.input-controller {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.input-controller textarea {
+  width: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  color: #1e293b;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+body.dark .input-controller textarea {
+  color: #e2e8f0;
+}
+
+.edit-controller i {
+  font-size: 1.1rem;
+  color: #2563eb;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.edit-controller i:hover {
+  color: #1e40af;
+}
+
+/* Update Section */
+.update-controller {
+  display: none;
+  margin-top: 10px;
+  text-align: right;
+}
+
+.update-controller button {
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.update-controller button:hover {
+  background: #1e40af;
+}
+
+/* Dark Mode Toggle */
+.toggle-theme {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  z-index: 99;
+}
+
+.toggle-theme:hover {
+  background: #1e40af;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .todo-input {
+    flex-direction: column;
+  }
+
+  .todo-input input,
+  .todo-input button {
+    width: 100%;
+  }
+
+  .toggle-theme {
+    top: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
